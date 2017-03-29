@@ -17,6 +17,7 @@
 <body>
     <div id="container"></div>
     <script type="text/babel">
+<<<<<<< HEAD
         var Circle = React.createClass(
         { 
             render: function() { 
@@ -49,12 +50,19 @@
         }
 
         ReactDOM.render(
+=======
+        var Circle = React.createClass( { render: function() { var circleStyle = { padding: 10, margin: 20, display: "inline-block", backgroundColor: this.props.bgColor, borderRadius: "50%", width: 100, height: 100, }; var jsx =
+        <div key={this.props.key}
+            style={circleStyle}></div>; return (jsx); } }); var destination = document.querySelector("#container"); //var Circle =
+        <Circle bgColor="#F9C240" />; //function showCircle() { // var colors = ["#393E41", "#E94F37", "#1C89BF", "#A1D363", "#85FFC7", "#297373", "#FF8552", "#A40E4C"]; // var ran = Math.floor(Math.random() * colors.length); // // // return a Circle with a randomly chosen color
+        // return
+        <Circle bgColor={colors[ran]}/>; //}; var colors = ["#393E41", "#E94F37", "#1C89BF", "#A1D363", "#85FFC7", "#297373", "#FF8552", "#A40E4C"]; var renderData = []; for(var i=0; i
+        <10; i++) { var ran=M ath.floor(Math.random() * colors.length); var color=c olors[ran]; renderData.push(<Circle
+            key={i + color} bgColor={color}/>); } ReactDOM.render(
+>>>>>>> 160ef4fcfc80b1459e229036d60770e36af667c7
         <div>
-            { 
-                renderData        
-            }
-        </div>, 
-        destination);
+            { renderData }
+        </div>, destination);
     </script>
 </body>
 
