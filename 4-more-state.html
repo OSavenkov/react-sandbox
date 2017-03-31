@@ -12,11 +12,17 @@
     <div id="container"></div>
     <script type="text/babel">
         var LightningCounter = React.createClass(
-        { 
+        {
             getInitialState: function() {
                 return {
                     strikes: 0
                 };
+            },
+            componentWillUpdate: function(newProps, newState) {
+              console.log("LightningCounter componentWillUpdate: Component is about to update!");
+            },
+            componentDidUpdate: function(currentProps, currentState) {
+              console.log("LightningCounter componentDidUpdate: Component just updated!");
             },
             timerTick: function() {
                 this.setState({
@@ -26,32 +32,38 @@
             componentDidMount: function() {
                 setInterval(this.timerTick, 1000);
             },
-            render: function() { 
-                return (<h1>{this.state.strikes}</h1>); 
-            } 
-        }); 
-        
+            render: function() {
+                return (<h1>{this.state.strikes}</h1>);
+            }
+        });
+
         var LightningCounterDisplay = React.createClass(
-        { 
-            render: function() { 
-                var divStyle = 
-                { 
-                    width: 250, 
+        {
+            componentWillUpdate: function(newProps, newState) {
+              console.log("LightningCounterDisplay componentWillUpdate: Component is about to update!");
+            },
+            componentDidUpdate: function(currentProps, currentState) {
+              console.log("LightningCounterDisplay componentDidUpdate: Component just updated!");
+            },
+            render: function() {
+                var divStyle =
+                {
+                    width: 250,
                     textAlign: "center",
-                    backgroundColor: "black", 
-                    padding: 40, 
-                    fontFamily: "sans-serif", 
-                    color: "#999", 
-                    borderRadius: 10 
+                    backgroundColor: "black",
+                    padding: 40,
+                    fontFamily: "sans-serif",
+                    color: "#999",
+                    borderRadius: 10
                 };
 
                 return(
                 <div style={divStyle}>
                     <LightningCounter/>
-                </div>); 
-            } 
-        }); 
-        
+                </div>);
+            }
+        });
+
         ReactDOM.render(<LightningCounterDisplay/>, document.querySelector("#container") );
     </script>
 </body>
